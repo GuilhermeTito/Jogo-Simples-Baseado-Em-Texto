@@ -1,4 +1,4 @@
-# Julgamento por água
+# Jogo de aventura baseado em texto
 
 Baseado em: https://coding-grace-guide.readthedocs.io/en/latest/guide/lessonplans/beginners-python-text-based-adventure.html
 
@@ -6,11 +6,11 @@ Este será um jogo de aventura baseado em texto
 
 Ele vai precisar de:
 
-- Uma personagem criada pelo jogador (objeto)
+- Uma personagem criada pelo jogador
 - Items
 - Loja
 - Dinheiro
-- Inimigos (objeto)
+- Inimigos
 - Combate
 - 1 fase
 - Chefe final

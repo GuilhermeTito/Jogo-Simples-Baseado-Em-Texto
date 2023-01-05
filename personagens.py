@@ -1,6 +1,8 @@
 import random
 random.seed()
 
+# Jogador:
+
 class player:
     def __init__(self, nome, hp, hpMax, forca, habilidade, dinheiro, remedio, pontos):
         self.nome = nome
@@ -20,7 +22,7 @@ class player:
             return self.forca
         else:
             return 0
-    
+
     def status(self):
         print("\nSTATUS")
         print("Nome: %s"%(self.nome))
@@ -30,16 +32,17 @@ class player:
         print("Habilidade = %d"%(self.habilidade))
         print("Dinheiro = %d"%(self.dinheiro))
         print("Remédios = %d"%(self.remedios))
-        print("Pontos = %d\n"%(self.pontos))
-    
-jogador = player("", 10, 10, 1, 1, 0, 0 , 10)
+        print("Pontos = %d"%(self.pontos))
+
+# NPCs
 
 class inimigo:
-    def __init__(self, nome, hp, forca, habilidade):
+    def __init__(self, nome, hp, forca, habilidade, estaVivo):
         self.nome = nome
         self.hp = hp
         self.forca = forca
         self.habilidade = habilidade
+        self.estaVivo = estaVivo
     
     def __str__(self):
         return f"{self.nome}"
@@ -50,5 +53,5 @@ class inimigo:
         else:
             return 0
 
-esqueleto = inimigo("Esqueleto", 10, 1, 5)
-soldado = inimigo("Soldado", 20, 5, 8)
+esqueleto = inimigo("Esqueleto", 10, 1, 5, True)
+soldado = inimigo("Soldado", 20, 5, 8, True)

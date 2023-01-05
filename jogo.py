@@ -1,22 +1,22 @@
 import sys
 import personagens as p
 import funcoes as f
+import fases
 
-print("Julgamento por Água\n")
+print("Jogo de aventura baseado em texto\n")
 print("1 - Jogar\n2 - Sair\n")
-opcao = 1 # int(input())
+opcao = int(input())
 
 if opcao == 1:
-    print("Bem vindo(a) ao jogo!")
+    print("Bem vindo(a) ao jogo!\n")
     
-    f.criarPersonagem()
-    
-    p.jogador.status()
+    jogador = p.player("", 10, 10, 1, 1, 0, 0 , 10)
 
-    print("\nUm %s se aproxima! Hora de lutar!\n"%(p.esqueleto.nome))
+    f.criarPersonagem(jogador)
     
-    f.batalha()
-    f.batalha()
-        
+    jogador.status()
+
+    fases.cemiterio(jogador)
+
 elif opcao == 2:
     sys.exit()

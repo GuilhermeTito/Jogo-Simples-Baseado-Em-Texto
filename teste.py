@@ -1,12 +1,13 @@
-import personagens as p
-import random
 
-random.seed()
+class pessoa():
+    def __init__(self, nome):
+        self.nome = nome
 
-num = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+joao = pessoa("João")
 
-i = 0
-while i < 6:
-    num[i]=random.random()
-    print(num[i])
-    i += 1
+#print(joao.nome)
+
+def funcao(objeto):
+    print("Nome é: %s"%(objeto.nome))
+
+funcao(joao)

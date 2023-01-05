@@ -1,42 +1,45 @@
-import personagens as p
+def atribuirPontos(jogador):
+    print("\nVocê tem %d pontos para distribuir entre forca e habilidade"%(jogador.pontos))
+    jogador.forca = int(input("Pontos de força: "))
+    jogador.habilidade = int(input("Pontos de habilidade: "))
 
-def criarPersonagem():
-    print("Crie sua personagem para começar.")
+def criarPersonagem(jogador):
+    print("Crie sua personagem para começar.\n")
     
-    p.jogador.nome = input("Digite o nome de sua personagem: ")
+    jogador.nome = input("Digite o nome de sua personagem: ")
     
-    print("Você tem %d pontos para distribuir entre forca e habilidade"%(p.jogador.pontos))
-    p.jogador.forca = int(input("Pontos de força: "))
-    p.jogador.habilidade = int(input("Pontos de habilidade: "))
+    atribuirPontos(jogador)
 
-def batalha():
-    
+def batalha(jogador, inimigo):
+    print("Um %s se aproxima! Hora de Lutar!\n"%(inimigo.nome))
+
     while 1:
-        print("%s. HP = %d. Força = %d. Habilidade = %d"%(p.jogador, p.jogador.hp, p.jogador.forca, p.jogador.habilidade))
-        print("%s. HP = %d. Força = %d. Habilidade = %d\n"%(p.esqueleto, p.esqueleto.hp, p.esqueleto.forca, p.esqueleto.habilidade))
+        print("%s. HP = %d. Força = %d. Habilidade = %d"%(jogador, jogador.hp, jogador.forca, jogador.habilidade))
+        print("%s. HP = %d. Força = %d. Habilidade = %d\n"%(inimigo, inimigo.hp, inimigo.forca, inimigo.habilidade))
         
-        dano = p.jogador.ataque()
+        dano = jogador.ataque()
         
         if dano <= 0:
-            print("Você ataca %s. Você erra!"%(p.esqueleto))
+            print("Você ataca %s. Você erra!\n"%(inimigo))
         else:
-            p.esqueleto.hp -= dano
-            print("Você ataca %s. %d de dano!"%(p.esqueleto, dano))
+            inimigo.hp -= dano
+            print("Você ataca %s. %d de dano!\n"%(inimigo, dano))
         
-        if p.esqueleto.hp <= 0:
-            print("Vitória!")
+        if inimigo.hp <= 0:
+            inimigo.estaVivo = False
+            print("Você derrotou %s\n"%(inimigo.nome))
             break
         
-        dano = p.esqueleto.ataque()
+        dano = inimigo.ataque()
         
         if dano <= 0:
-            print("%s ataca você. Ele erra!"%(p.esqueleto))
+            print("%s ataca você. Ele erra!\n"%(inimigo))
         else:
-            p.jogador.hp -= dano
-            print("%s ataca você. %d de dano!"%(p.esqueleto, dano))
+            jogador.hp -= dano
+            print("%s ataca você. %d de dano!\n"%(inimigo, dano))
         
-        if p.jogador.hp <= 0:
+        if jogador.hp <= 0:
             print("Derrota!")
             break
         
-        input("Próximo turno...")
+        input("Próximo turno...\n")
